@@ -1,0 +1,59 @@
+
+.links {
+    margin-top: 20px;
+  }
+  
+  .links a {
+    color: rgba(0, 145, 169, 1);
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  
+  .links a:hover {
+    text-decoration: underline;
+  }
+  
+  .links span {
+    margin: 0 5px;
+  }.footer-container {
+    background-color: #ffffff;
+  }
+  
+  .newsletter-section {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    
+  }
+  
+  .newsletter-form {
+    margin-bottom: 20px;
+  }
+  
+  .form-control {
+    max-width: 300px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .social-icons {
+    background-color: #ffffff;
+    padding: 10px 0;
+  }
+  
+  .socialize {
+    margin-bottom: 0;
+  }
+  
+  .shareContent a {
+    color: #000;
+    font-size: 24px;
+  }
+  
+  .shareContent a:hover {
+    color: #007bff;
+  }
+  

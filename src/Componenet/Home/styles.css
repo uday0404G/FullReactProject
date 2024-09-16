@@ -1,0 +1,234 @@
+/* Swiper container and slides */
+.swiper {
+    width: 80%;
+    height: auto; /* Changed to auto to allow dynamic height */
+    /* margin: 20px auto; */
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .slidermain{
+    width: 300px !important;
+    margin: 0 !important;
+    padding: 8px;
+    height: 420px;
+  }
+  .sl{
+    /* width: 25% !important; */
+    margin: 0 !important;
+    padding: 8px;
+    height: 420px;
+  }
+
+  
+  /* Adjust buttons for Swiper */
+  .append-buttons {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .append-buttons button {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid #007aff;
+    color: #007aff;
+    text-decoration: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin: 0 10px;
+    font-size: 13px;
+  }
+  
+  /* Container for the tile */
+  .base-tile {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    position: relative;
+    height: 100%; /* Ensure the tile fills available space */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Header section with badge and favorite button */
+  .base-tile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  /* Badge styles */
+  .badge-container .daily-deals {
+    background-color: #ff5a5f;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+  }
+  
+  /* Favorite button */
+  .favorite-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .favorite-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .favorite-icon svg {
+    fill: #fa2;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .favorite-btn:hover .favorite-icon {
+    opacity: 0.8;
+  }
+  
+  /* Tile cover (image) container */
+  .tile-cover {
+    position: relative;
+    padding-top: 10%; /* Maintain aspect ratio for images */
+  }
+  
+  
+
+  
+  /* Sale price and rating */
+  .base-tile-price-rating {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .sale-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .discount-off {
+    font-size: 12px;
+    color: #ff5a5f;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .rating-star-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #f0bb00;
+  }
+  
+  .rating-score {
+    margin-left: 4px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .rating-review-count {
+    margin-left: 4px;
+    font-size: 12px;
+    color: #999;
+  }
+  
+  /* Product name styling */
+  .product-name {
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+    display: block;
+    text-decoration: none;
+  }
+  
+  .product-name:hover {
+    color: #ff5a5f;
+  }
+  
+  /* Footer with color swatches */
+  .base-tile-footer {
+    padding: 10px;
+  }
+  
+  .colors-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .color-item-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-right: 8px;
+    position: relative;
+  }
+  
+  .color-item {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+  
+  .color-swatch-brown {
+    background-color: #964B00;
+  }
+  
+  .color-swatch-blue {
+    background-color: #1E90FF;
+  }
+  
+  /* Active color swatch */
+  .active-color .active-border {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid #ff5a5f;
+    border-radius: 50%;
+  }
+  
+  /* Hover effects */
+  .base-tile:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .base-tile {
+      margin: 0 auto;
+    }
+  
+    .colors-container {
+      justify-content: space-evenly;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .sale-price {
+      font-size: 14px;
+    }
+  
+    .product-name {
+      font-size: 14px;
+    }
+  }
+  
