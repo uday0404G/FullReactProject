@@ -9,6 +9,7 @@ import Contacts from '../Componenet/Contacts'
 import Brand from '../Componenet/Brand'
 import SingPro from '../Componenet/SingPro'
 import Cart from '../Componenet/Cart'
+import Login from '../Componenet/Login'
 const MainRoute = () => {
   return (
     <Routes>
@@ -21,6 +22,8 @@ const MainRoute = () => {
         <Route path='/Brand' element={<Brand/>}></Route>
         <Route path="/SingPro/:id" element={<SingPro/>}></Route>
         <Route path="/Cart" element={<Cart/>}></Route>
+        <Route path="/Login" element={<Login/>}></Route>
+
 
 
 

@@ -67,10 +67,10 @@ const Navbar = () => {
               <span className="material-symbols-outlined">center_focus_strong</span>
               <p className="m-0">Visualsearch</p>
             </div>
-            <div className="d-flex flex-column align-items-center me-3">
+            <Link to="/Login" className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">person</span>
               <p className="m-0">LOGIN</p>
-            </div>
+            </Link>
             <div className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">favorite</span>
               <p className="m-0">FAVORITE</p>
