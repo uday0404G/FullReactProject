@@ -6,7 +6,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 const Login = () => {
 const provider=new GoogleAuthProvider();
 
-const [Login,setLogin]=useState(false)
+
 
 const signIn = () => {
   signInWithPopup(auth, provider)
@@ -20,9 +20,7 @@ const signIn = () => {
 }
   return (
     <>
-    {
-      Lo
-    }
+   
     <div className='border my-5 m-auto' style={{height:"100vh",width:"33%", backgroundColor:"#fafafa"}}>
       <div className="w-100">
         <button className='btn btn-white border-none w-50 fs-5'>SIGN IN</button>
