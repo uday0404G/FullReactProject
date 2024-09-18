@@ -52,7 +52,6 @@ const Eyeglasses = () => {
       return sort === 'asc' ? a.price - b.price : b.price - a.price;
     });
   }
-  console.log(filteredDatas);
   return (
     <>
       <div className='border mt-3' style={{width:"20%", height:"100%"}}>

@@ -6,6 +6,7 @@ import './styles.css';
 import { Pagination } from 'swiper/modules';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../Firebase/firebase';
+import { Link } from 'react-router-dom';
 
 export default function Proslider2() {
   const [products, setProducts] = useState([]);
@@ -43,7 +44,6 @@ export default function Proslider2() {
   if (error) {
     return <p>{error}</p>;
   }
-console.log(products);
 
   return (
     <>
@@ -82,8 +82,8 @@ console.log(products);
       >
         {products.map((product) => (
           <SwiperSlide key={product.id} className="container slidermain" >
-            <div
-              className="base-tile recommendation-carousel-tile global-tile"
+            <Link to={`singpro/${product.id}`}
+              className="base-tile recommendation-carousel-tile global-tile   text-decoration-none"
               data-insights-object-id={product.id}
               data-insights-position="1"
               style={{ backgroundColor: '#fafafa', width: '300px' }}
@@ -175,7 +175,7 @@ console.log(products);
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -52,26 +52,46 @@ const Contacts = () => {
       return sort === 'asc' ? a.price - b.price : b.price - a.price;
     });
   }
-  console.log(filteredDatas);
   return (
     <>
       <div className='border mt-3' style={{width:"20%", height:"100%"}}>
 
       </div>
       <div className=' border-bottom' style={{width:"80%", height:"100%", marginLeft:"20%"}}>
-      <div className='w-50  '>
+      <div className='ben'>
+        <div className='ben-b '>
+          <img
+            src="https://static.zennioptical.com/marketing/plp/contacts24/240529_contacts_plp_banner_xl.png"
+            alt="Fall New Arrivals"
+            className='rounded-3'
+          />
+            <div className="content left-aligned">
+            <div className="text-wrapper">
+              <h1 className="title color-white ">Contact Lenses</h1>
+              <p className="body-text color-white text-wrap">
+              Brand-name contacts, wallet-happy prices: Save 20% on your first order plus free shipping!              </p>
+            </div>
+            
+          </div>
+          </div>
+        </div>
+  
+      <div className='w-50  border-bottom'>
 
-      <h1>Shop Eyeglass Frames Online</h1>
+      <h1>Shop Contact Lenses</h1>
       <p>Find the right pair of eyeglasses from our selection of high-quality frames. All work with prescription or non-prescription lenses and also work as a great pair of sunglasses..</p>
       </div>
       <div>
+        <div className='w-100 d-flex justify-content-between my-3 border-bottom p-2'>
+
         <p>Showing 1-24 of 2118 results</p>
         <select value={sort} onChange={handleSort}>
           <option value="">Short By Relavance</option>
           <option value="asc">Price Low To High</option>
           <option value="desc">Price High to Low</option>
         </select>
-      </div>
+        </div>
+        </div>
       <div className=" w-100 h-100 d-flex flex-wrap ">
       {filteredDatas.map((product) => (
           <Link key={product.id} className="container  swiper-slide col-lg-3 col-md-4 col-sm-6 sl" >

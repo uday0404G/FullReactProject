@@ -11,19 +11,20 @@ const FirstBener = () => {
       <Swiper navigation={true} modules={[Navigation]} className="mySwiper container">
         <SwiperSlide >
           <img
-            src="https://static.zennioptical.com/marketing/campaign/transitions/gens/2024/HP/090324_TransitionsGenS_new_hp_carousel_male-lg.png"
+            src="https://static.zennioptical.com/marketing/campaign/night_driving/HP/NightDriving_hp_carousel_tile-xl.png"
             alt="Ultra Responsive Lenses"
+                  className='rounded-3'
           />
           <div className="content left-aligned">
             <div className="text-wrapper">
-              <h1 className="title color-white">Ultra Responsive Lenses</h1>
+              <h1 className="title color-white">Anti-Glare Night Driving Glasses</h1>
               <p className="body-text color-white text-wrap">
-                New Transitions® GEN S™ lenses are up to 2x faster to fade back than previous generations.
+              Sharper vision for safer night driving.
               </p>
             </div>
             <div className="button-group">
               <a className="link-btn" href="/b/transitions/gen-s">
-                Shop GEN S™
+              Learn more
                 <span className="fa fa-chevron-right font-small md:font-medium ms-2"></span>
               </a>
             </div>

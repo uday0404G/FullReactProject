@@ -1,17 +1,28 @@
-import React from 'react'
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import React, { useState } from 'react'
+import { GoogleAuthProvider, getAuth ,signInWithPopup} from 'firebase/auth';
+import { auth } from '../Firebase/firebase';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 const Login = () => {
-  const google = new GoogleAuthProvider();
-const auth = getAuth();
+const provider=new GoogleAuthProvider();
 
- const Googleauth = () => {
-  signInWithPopup(auth, google)
-   
-  }
+const [Login,setLogin]=useState(false)
 
+const signIn = () => {
+  signInWithPopup(auth, provider)
+  .then((result) => {
+    console.log(result.user);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+  
+}
   return (
     <>
+    {
+      Lo
+    }
     <div className='border my-5 m-auto' style={{height:"100vh",width:"33%", backgroundColor:"#fafafa"}}>
       <div className="w-100">
         <button className='btn btn-white border-none w-50 fs-5'>SIGN IN</button>
@@ -28,10 +39,28 @@ const auth = getAuth();
       </form><br /><br />
       <p style={{color:"#007b8f"}} className='text-center'>Forgot password?</p>
       <hr  className='mx-5'/>
-      <div className='w-50  d-flex text-center d-flex justify-content-center'>
+      <h5 className='text-center'>
+        Or
+      </h5>
+      <div className='w-100  d-flex text-center d-flex justify-content-center text-center'>
        
-        <button onClick={Googleauth} className='btn w-75  btn-outline-secondary'>Sign in with Google</button>
-      </div>
+      <button onClick={signIn} 
+            className='btn w-50' 
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'linear-gradient(45deg, #4285F4, #34A853, #FBBC05, #EA4335)',
+              color: 'white',
+              border: 'none',
+              padding: '10px',
+              borderRadius: '5px'
+            }}
+          >
+            <FontAwesomeIcon icon={faGoogle} style={{ marginRight: '8px' }} />
+            Sign in with Google
+          </button>
+            </div>
     </div>
     </>
   )

@@ -41,7 +41,6 @@ const SingPro = () => {
   if (error) {
     return <p>{error}</p>;
   }
-console.log(product);
 
   return (
     <>

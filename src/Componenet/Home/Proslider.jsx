@@ -6,6 +6,7 @@ import './styles.css';
 import { Pagination } from 'swiper/modules';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../Firebase/firebase';
+import { Link } from 'react-router-dom';
 
 export default function Proslider() {
   const [products, setProducts] = useState([]);
@@ -84,8 +85,8 @@ export default function Proslider() {
         {products.map((product) => (
           <SwiperSlide key={product.id} className="container slidermain">
             {/* Product slide content */}
-            <div
-              className="base-tile recommendation-carousel-tile global-tile"
+            <Link to={`singpro/${product.id}`}
+              className="base-tile recommendation-carousel-tile global-tile text-decoration-none"
               data-insights-object-id={product.id}
               data-insights-position="1"
               style={{ backgroundColor: '#fafafa' }}
@@ -197,17 +198,47 @@ export default function Proslider() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Footer with trust factors */}
-      <div className="container-fluid  d-flex justify-content-center align-items-center mb-4">
-        <div className="container row " style={{ height: '100px' }}>
-          {/* Your trust factor sections */}
-        </div>
-      </div>
+      <div className='container-fluid  d-flex justify-content-center align-items-center mb-4'>
+            <div className='container   row ' style={{height:"100px"}}>
+                <div className="col-2 h-100 rounded-4 d-flex justyfy-content-center align-items-center text-center px-3 py-3 flex-wrap text-light" style={{backgroundColor:"#084045"}}><h3>Free Shipping</h3><p>Orders$65+</p></div>
+                <div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+  <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trustpilot/TP-Logo-Tricolor-Black-RGB.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
+  <div className="description mt-2">
+    <div>150k+ 4.5 Reviews</div>
+  </div>
+</div>
+<div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+  <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trust%20Bar/shipping.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
+  <div className="description mt-2">
+    <div>30-Day Returns</div>
+  </div>
+</div>
+
+<div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+  <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trust%20Bar/favorites.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
+  <div className="description mt-2">
+    <div>Best Customer Service</div>
+  </div>
+</div>
+<div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+  <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trust%20Bar/medal.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
+  <div className="description mt-2">
+    <div>#1 Online Eyewear Retailer</div>
+  </div>
+</div>
+<div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+  <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trust%20Bar/gift.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
+  <div className="description mt-2">
+    <div>Zenni Rewards</div>
+  </div>
+</div>
+            </div>
+            </div>
     </>
   );
 }
