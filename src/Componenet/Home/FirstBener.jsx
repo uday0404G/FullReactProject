@@ -17,7 +17,7 @@ const FirstBener = () => {
           />
           <div className="content left-aligned">
             <div className="text-wrapper">
-              <h1 className="title color-white">Anti-Glare Night Driving Glasses</h1>
+              <h1 className="title color-white ">Anti-Glare Night Driving Glasses</h1>
               <p className="body-text color-white text-wrap">
               Sharper vision for safer night driving.
               </p>

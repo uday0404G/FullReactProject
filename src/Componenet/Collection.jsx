@@ -65,7 +65,8 @@ const Collection = () => {
             alt="Fall New Arrivals"
             className='rounded-3'
           />
-            <div className="content left-aligned">
+            <div className="content left-aligned" style={{ marginTop :"-7%",
+    marginLeft:" 17%" }}>
             <div className="text-wrapper">
               <h1 className="title color-white ">The K Pop Collection</h1>
               <p className="body-text color-white text-wrap">
@@ -95,7 +96,7 @@ const Collection = () => {
       </div>
       <div className=" w-100 h-100 d-flex flex-wrap ">
       {filteredDatas.map((product) => (
-          <Link key={product.id} className="container  swiper-slide col-lg-3 col-md-4 col-sm-6 sl text-decoration-none" >
+          <Link key={product.id} className="container text-decoration-none swiper-slide col-lg-3 col-md-4 col-sm-6 sl text-decoration-none" >
             {/* Product slide content */}
             <div
               className="base-tile recommendation-carousel-tile global-tile"

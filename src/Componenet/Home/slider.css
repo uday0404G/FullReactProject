@@ -1,60 +1,116 @@
+/* slider.css */
 .swiper {
-    width: 100%;
-    height: 100%;
-    margin: 20px auto;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .content {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    text-align: left;
-  }
-  
-  .left-aligned {
-    left: 5%; /* Aligns the content to the left side */
-    max-width: 40%; /* Ensures the content doesn't take up too much space */
-  }
-  
+  width: 100%;
+  height: 100%;
+  margin: 20px auto;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover ensures full area is used */
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+  color: white;
+  text-align: left;
+  padding: 0 20px;
+  max-width: 50%;
+}
+
+.left-aligned {
+  /* Specific alignment if needed */
+}
+
+.text-wrapper .title {
+  font-size: 55px; /* Base font size */
+  font-weight: bold;
+}
+
+.text-wrapper .body-text {
+  font-size: 1rem;
+}
+
+.button-group .link-btn {
+  color: black !important;
+  background-color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+.button-group .link-btn:hover {
+  border: 1px solid black;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
   .text-wrapper .title {
-    font-size:55px;
-    font-weight: bold;
+    font-size: 2rem;
   }
-  
   .text-wrapper .body-text {
-    font-size: 16px;
+    font-size: 0.875rem;
   }
-  
   .button-group .link-btn {
-    color: black !important;
-    background-color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
+    font-size: 0.875rem;
   }
-  
-  .button-group .link-btn:hover {
-    border: 1px solid black;
+}
+
+@media (max-width: 992px) {
+  .left-aligned {
+    max-width: 60%;
   }
-  
+}
+
+@media (max-width: 768px) {
+  .content {
+    left: 0;
+    text-align: center;
+    padding: 0 10px;
+  }
+  .left-aligned {
+    max-width: 80%;
+  }
+  .text-wrapper .title {
+    font-size: 1.5rem;
+  }
+  .text-wrapper .body-text {
+    font-size: 0.75rem;
+  }
+  .button-group .link-btn {
+    font-size: 0.75rem;
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 576px) {
+  .text-wrapper .title {
+    font-size: 1.25rem;
+  }
+  .text-wrapper .body-text {
+    font-size: 0.625rem;
+  }
+  .button-group .link-btn {
+    font-size: 0.625rem;
+    padding: 6px 12px;
+  }
+}

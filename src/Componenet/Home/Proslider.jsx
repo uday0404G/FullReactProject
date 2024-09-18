@@ -72,11 +72,11 @@ export default function Proslider() {
           },
           768: {
             slidesPerView: 4,
-            spaceBetween: 40,
+            spaceBetween: 30,
           },
           1024: {
             slidesPerView: 5,
-            spaceBetween: 50,
+            spaceBetween: 40,
           },
         }}
         modules={[Pagination]}

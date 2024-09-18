@@ -19,10 +19,7 @@
     height: auto; /* Changed to auto to allow dynamic height */
     /* margin: 20px auto; */
   }
-  .content{
-    margin-top: -5% !important;
-    margin-left: 20% ;
-  }
+ 
   
   .ben-b {
     text-align: center;

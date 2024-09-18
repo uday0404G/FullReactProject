@@ -1,65 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from React Router
+import { Link } from "react-router-dom";
+import { Navbar, Nav, Container, Form, FormControl, Button } from 'react-bootstrap';
 
-const Navbar = () => {
+const MyNavbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light border mt-4">
-      <div className="container-fluid">
+    <Navbar bg="light" expand="lg" className="border mt-4">
+      <Container fluid>
         {/* Logo Section */}
-        <Link to="/" className="navbar-brand d-flex align-items-center">
+        <Navbar.Brand as={Link} to="/">
           <img
             src="https://static.zennioptical.com/dev/image/site/logo/zenni-logo.png"
             alt="Logo"
             className="img-fluid"
             style={{ height: "50px" }}
           />
-        </Link>
+        </Navbar.Brand>
 
         {/* Toggle Button for Mobile View */}
-        <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+        <Navbar.Toggle aria-controls="navbarNav" />
 
         {/* Collapsible Navbar Menu */}
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link to="/Eyeglasses" className="nav-link">EYEGLASSES</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/Sunglass" className="nav-link">SUNGLASSES</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/Lenses" className="nav-link">LENSES</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/Collection" className="nav-link">COLLECTIONS</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/Contacts" className="nav-link">CONTACTS</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/Brand" className="nav-link">BRANDS</Link>
-            </li>
-          </ul>
+        <Navbar.Collapse id="navbarNav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/Eyeglasses">EYEGLASSES</Nav.Link>
+            <Nav.Link as={Link} to="/Sunglass">SUNGLASSES</Nav.Link>
+            <Nav.Link as={Link} to="/Lenses">LENSES</Nav.Link>
+            <Nav.Link as={Link} to="/Collection">COLLECTIONS</Nav.Link>
+            <Nav.Link as={Link} to="/Contacts">CONTACTS</Nav.Link>
+            <Nav.Link as={Link} to="/Brand">BRANDS</Nav.Link>
+          </Nav>
 
           {/* Search Box */}
-          <div className="d-flex align-items-center me-3">
-            <input
-              type="text"
-              className="form-control rounded-pill"
+          <Form className="d-flex align-items-center me-3">
+            <FormControl
+              type="search"
               placeholder="Search"
+              className="me-2 rounded-pill"
               style={{ width: "200px" }}
             />
-          </div>
+          </Form>
 
           {/* Icons Section */}
           <div className="d-flex">
@@ -67,10 +46,10 @@ const Navbar = () => {
               <span className="material-symbols-outlined">center_focus_strong</span>
               <p className="m-0">Visualsearch</p>
             </div>
-            <Link to="/Login" className="d-flex flex-column align-items-center me-3">
+            <Nav.Link as={Link} to="/Login" className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">person</span>
               <p className="m-0">LOGIN</p>
-            </Link>
+            </Nav.Link>
             <div className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">favorite</span>
               <p className="m-0">FAVORITE</p>
@@ -84,10 +63,10 @@ const Navbar = () => {
               <p className="m-0">CART</p>
             </div>
           </div>
-        </div>
-      </div>
-    </nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 
-export default Navbar;
+export default MyNavbar;
