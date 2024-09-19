@@ -204,34 +204,34 @@ export default function Proslider() {
       </Swiper>
 
       <div className='container-fluid  d-flex justify-content-center align-items-center mb-4'>
-            <div className='container   row ' style={{height:"100px"}}>
-                <div className="col-2 h-100 rounded-4 d-flex justyfy-content-center align-items-center text-center px-3 py-3 flex-wrap text-light" style={{backgroundColor:"#084045"}}><h3>Free Shipping</h3><p>Orders$65+</p></div>
-                <div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+            <div className='container   row ' style={{height:"auto"}}>
+                <div className="col-12 col-md-2 flex-sm-column h-100 rounded-4 d-flex justyfy-content-center align-items-center text-center px-3 py-3 flex-wrap text-light" style={{backgroundColor:"#084045"}}><h3>Free Shipping</h3><p>Orders$65+</p></div>
+                <div className="col-12 col-md-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
   <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trustpilot/TP-Logo-Tricolor-Black-RGB.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
   <div className="description mt-2">
     <div>150k+ 4.5 Reviews</div>
   </div>
 </div>
-<div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+<div className="col-12 col-md-2 h-100 rounded-4 d-flex justify-content-center flex-column py-4 align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
   <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trust%20Bar/shipping.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
   <div className="description mt-2">
     <div>30-Day Returns</div>
   </div>
 </div>
 
-<div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+<div className="col-12 col-md-2 h-100 rounded-4 d-flex justify-content-center flex-column py-4  align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
   <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trust%20Bar/favorites.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
   <div className="description mt-2">
     <div>Best Customer Service</div>
   </div>
 </div>
-<div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+<div className="col-12 col-md-2 h-100 rounded-4 d-flex justify-content-center  align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
   <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trust%20Bar/medal.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
   <div className="description mt-2">
     <div>#1 Online Eyewear Retailer</div>
   </div>
 </div>
-<div className="col-2 h-100 rounded-4 d-flex justify-content-center align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
+<div className="col-12 col-md-2 h-100 rounded-4 d-flex justify-content-center flex-column py-4  align-items-center text-center px-3 py-3 flex-wrap text-black" style={{ backgroundColor: "#fafafa" }}>
   <img src="//static.zennioptical.com/marketing/homepage/componentsRedesign/0807/Icons/Trust%20Bar/gift.svg" alt="150k+ 4.5 Reviews" className="img-fluid" />
   <div className="description mt-2">
     <div>Zenni Rewards</div>
