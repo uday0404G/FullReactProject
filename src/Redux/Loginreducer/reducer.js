@@ -1,7 +1,9 @@
-import { DATA,  ERROR, LOADING,  } from "./actiontype";
+import { DATA,  ERROR, LOADING, SIGNINDATA, USERINFO,  } from "./actiontype";
 
 const initial = {
-  Data: [],
+  LoginData: [],
+  UserInfo:[],
+  SigninData:[],
   loading: false,
   Error: true,
 };
@@ -11,8 +13,20 @@ export const reducer = (state = initial, action) => {
       return {
         ...state,
         loading: false,
-        Data: action.payload,
+        LoginData: action.payload,
       };
+      case USERINFO:
+      return {
+        ...state,
+        loading: false,
+        UserInfo: action.payload,
+      };
+      case SIGNINDATA:
+        return {
+          ...state,
+          loading: false,
+          SigninData: action.payload,
+        };
     case LOADING:
       return {
         loading: true,

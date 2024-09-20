@@ -3,6 +3,14 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Form, FormControl, Button } from 'react-bootstrap';
 
 const MyNavbar = () => {
+  const Lo=localStorage.getItem("IsLogin")
+  const Logout=()=>{
+    localStorage.removeItem("IsLogin",false)
+  }
+  const handleLogout = () => {
+    localStorage.removeItem("IsLogin"); 
+    navigate("/Login"); 
+  };
   return (
     <Navbar bg="light" expand="lg" className="border mt-4">
       <Container fluid>
@@ -40,16 +48,23 @@ const MyNavbar = () => {
             />
           </Form>
 
-          {/* Icons Section */}
+        
           <div className="d-flex">
             <div className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">center_focus_strong</span>
               <p className="m-0">Visualsearch</p>
             </div>
-            <Nav.Link as={Link} to="/Login" className="d-flex flex-column align-items-center me-3">
+          { Lo? 
+              <Nav.Link as={Link} onClick={Logout}  to="/Login" className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">person</span>
-              <p className="m-0">LOGIN</p>
+              <p className="m-0">Logout</p>
+             
             </Nav.Link>
+           :     <Nav.Link as={Link} to="/Login" className="d-flex flex-column align-items-center me-3">
+           <span className="material-symbols-outlined">person</span>
+           <p className="m-0">LOGIN</p>
+         </Nav.Link> 
+          }
             <div className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">favorite</span>
               <p className="m-0">FAVORITE</p>
@@ -58,10 +73,10 @@ const MyNavbar = () => {
               <span className="material-symbols-outlined">help</span>
               <p className="m-0">HELP</p>
             </div>
-            <div className="d-flex flex-column align-items-center">
+            <Nav.Link  as={Link} to="/Cart" className="d-flex flex-column align-items-center">
               <span className="material-symbols-outlined">shopping_cart</span>
               <p className="m-0">CART</p>
-            </div>
+            </Nav.Link>
           </div>
         </Navbar.Collapse>
       </Container>

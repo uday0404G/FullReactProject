@@ -96,7 +96,7 @@ const Collection = () => {
       </div>
       <div className=" w-100 h-100 d-flex flex-wrap ">
       {filteredDatas.map((product) => (
-          <Link key={product.id} className="container text-decoration-none swiper-slide col-lg-3 col-md-4 col-sm-6 sl text-decoration-none" >
+          <Link key={product.id} to={`/SingPro/${product.id}`} className="container text-decoration-none swiper-slide col-lg-3 col-md-4 col-sm-6 sl text-decoration-none" >
             {/* Product slide content */}
             <div
               className="base-tile recommendation-carousel-tile global-tile"
