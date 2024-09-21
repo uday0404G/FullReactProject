@@ -11,6 +11,7 @@ import SingPro from '../Componenet/SingPro'
 import Cart from '../Componenet/Cart'
 import Login from '../Componenet/Login'
 import PrivateRoute from './PrivateRoute'
+import UserDetails from '../Componenet/UserDetails'
 const MainRoute = () => {
   return (
     <Routes>
@@ -23,10 +24,21 @@ const MainRoute = () => {
         <Route path='/Brand' element={<Brand/>}></Route>
         <Route path="/SingPro/:id" element={
           <PrivateRoute>
-          <SingPro/>
+          <SingPro/>  
           </PrivateRoute>
           }></Route>
-        <Route path="/Cart" element={<Cart/>}></Route>
+           <Route path="/userDetails" element={
+          <PrivateRoute>
+          <UserDetails/>
+          </PrivateRoute>
+          }></Route>
+        <Route path="/Cart" element={
+          <PrivateRoute>
+
+          <Cart/>
+          </PrivateRoute>
+
+          }></Route>
         <Route path="/Login" element={<Login/>}></Route>
 
 

@@ -1,26 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Container, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Form, FormControl } from 'react-bootstrap';
 
 const MyNavbar = () => {
-  const Lo=localStorage.getItem("IsLogin")
-  const Logout=()=>{
-    localStorage.removeItem("IsLogin",false)
-  }
-  const handleLogout = () => {
-    localStorage.removeItem("IsLogin"); 
-    navigate("/Login"); 
-  };
+  // Use useState to track the login status
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Use useEffect to get login status from localStorage on component mount
+  useEffect(() => {
+    const loginState = localStorage.getItem("IsLogin");
+    setIsLoggedIn(loginState === "true");
+  }, []); // Empty dependency array ensures this runs only once after the component mounts
+
   return (
-    <Navbar bg="light" expand="lg" className="border mt-4">
+    <Navbar bg="white" expand="lg" className="border mt-4">
       <Container fluid>
         {/* Logo Section */}
-        <Navbar.Brand as={Link} to="/">
+        <Navbar.Brand as={Link} to="/" >
           <img
             src="https://static.zennioptical.com/dev/image/site/logo/zenni-logo.png"
             alt="Logo"
-            className="img-fluid"
-            style={{ height: "50px" }}
+            className="img-fluid ps-2"
+            style={{ height: "40px",width:"90%" }}
           />
         </Navbar.Brand>
 
@@ -30,12 +31,12 @@ const MyNavbar = () => {
         {/* Collapsible Navbar Menu */}
         <Navbar.Collapse id="navbarNav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/Eyeglasses">EYEGLASSES</Nav.Link>
-            <Nav.Link as={Link} to="/Sunglass">SUNGLASSES</Nav.Link>
-            <Nav.Link as={Link} to="/Lenses">LENSES</Nav.Link>
-            <Nav.Link as={Link} to="/Collection">COLLECTIONS</Nav.Link>
-            <Nav.Link as={Link} to="/Contacts">CONTACTS</Nav.Link>
-            <Nav.Link as={Link} to="/Brand">BRANDS</Nav.Link>
+            <Nav.Link as={Link} className="text-dark" to="/Eyeglasses">EYEGLASSES</Nav.Link>
+            <Nav.Link as={Link} className="text-dark" to="/Sunglass">SUNGLASSES</Nav.Link>
+            <Nav.Link as={Link} className="text-dark" to="/Lenses">LENSES</Nav.Link>
+            <Nav.Link as={Link} className="text-dark" to="/Collection">COLLECTIONS</Nav.Link>
+            <Nav.Link as={Link} className="text-dark" to="/Contacts">CONTACTS</Nav.Link>
+           
           </Nav>
 
           {/* Search Box */}
@@ -48,34 +49,39 @@ const MyNavbar = () => {
             />
           </Form>
 
-        
+          {/* Right Side Icons */}
           <div className="d-flex">
             <div className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">center_focus_strong</span>
               <p className="m-0">Visualsearch</p>
             </div>
-          { Lo? 
-              <Nav.Link as={Link} onClick={Logout}  to="/Login" className="d-flex flex-column align-items-center me-3">
-              <span className="material-symbols-outlined">person</span>
-              <p className="m-0">Logout</p>
-             
-            </Nav.Link>
-           :     <Nav.Link as={Link} to="/Login" className="d-flex flex-column align-items-center me-3">
-           <span className="material-symbols-outlined">person</span>
-           <p className="m-0">LOGIN</p>
-         </Nav.Link> 
-          }
+
+            {/* Conditional rendering based on login state */}
+            {isLoggedIn ? (
+              <Nav.Link as={Link} to="/UserDetails" className="d-flex flex-column align-items-center me-3">
+                <span className="material-symbols-outlined">person</span>
+                <p className="m-0">User</p>
+              </Nav.Link>
+            ) : (
+              <Nav.Link as={Link} to="/Login" className="d-flex flex-column align-items-center me-3">
+                <span className="material-symbols-outlined">person</span>
+                <p className="m-0">Login</p>
+              </Nav.Link>
+            )}
+
             <div className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">favorite</span>
-              <p className="m-0">FAVORITE</p>
+              <p className="m-0">Favorite</p>
             </div>
+
             <div className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">help</span>
-              <p className="m-0">HELP</p>
+              <p className="m-0">Help</p>
             </div>
-            <Nav.Link  as={Link} to="/Cart" className="d-flex flex-column align-items-center">
+
+            <Nav.Link as={Link} to="/Cart" className="d-flex flex-column align-items-center">
               <span className="material-symbols-outlined">shopping_cart</span>
-              <p className="m-0">CART</p>
+              <p className="m-0">Cart</p>
             </Nav.Link>
           </div>
         </Navbar.Collapse>

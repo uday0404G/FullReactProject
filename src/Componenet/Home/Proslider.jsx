@@ -46,7 +46,7 @@ export default function Proslider() {
     return <p>{error}</p>;
   }
 
-  console.log(products);
+
 
   return (
     <>
@@ -130,7 +130,7 @@ export default function Proslider() {
 
               <div className="base-tile-cover-container">
                 <div className="tile-cover base-tile-cover global-tile-cover">
-                  <a href="#" className="cover-image-container bg-loading">
+                  <a href="#" className="cover-image-container  ">
                     <img
                       alt={product.name}
                       src={product.image}

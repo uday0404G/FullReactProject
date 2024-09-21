@@ -95,37 +95,62 @@ const Login = () => {
   const Googleauth = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
-      const userinfo = await {
+  
+      // Extract user information from the Google response
+      const userinfo = {
         FirstName: result.user.displayName.split(" ")[0],
         LastName: result.user.displayName.split(" ")[1] || "",
         Email: result.user.email,
         PhotoURL: result.user.photoURL,
-        Password: "",
+        Password: "", // Google sign-in doesn't need a password
       };
-      await setUserinfo(userinfo);
-     await dispatch(UserLoginData(Userinfo));
-      if (dispatch) {
+  
+      // Check if the user already exists in the store (or you can do this via an API call)
+      const existingUser = store.UserInfo.find((el) => el.Email === userinfo.Email);
+  
+      if (existingUser) {
+        // User already exists, log them in but do not insert data
         Swal.fire({
-          title: "Welcome To Zenni Optical Clone.",
+          title: "Welcome Back to Zenni Optical Clone!",
           width: 600,
           padding: "3em",
           color: "#716add",
           background: "#fff url(/images/trees.png)",
           backdrop: `
-          rgba(0,0,123,0.4)
-          url("https://sweetalert2.github.io/images/nyan-cat.gif")
-          left top
-          no-repeat
-        `,
+            rgba(0,0,123,0.4)
+            url("https://sweetalert2.github.io/images/nyan-cat.gif")
+            left top
+            no-repeat
+          `,
         });
-        nevigate("/");
-      localStorage.setItem("IsLogin",true)
-
+        localStorage.setItem("IsLogin", true); // Mark user as logged in
+        nevigate("/"); // Redirect to home
+      } else {
+        // User doesn't exist, insert data into UserLoginData and log them in
+        await dispatch(UserLoginData(userinfo)); // Insert user data
+        Swal.fire({
+          title: "Welcome to Zenni Optical Clone!",
+          width: 600,
+          padding: "3em",
+          color: "#716add",
+          background: "#fff url(/images/trees.png)",
+          backdrop: `
+            rgba(0,0,123,0.4)
+            url("https://sweetalert2.github.io/images/nyan-cat.gif")
+            left top
+            no-repeat
+          `,
+        });
+        localStorage.setItem("IsLogin", true); // Mark user as logged in
+        nevigate("/"); // Redirect to home
       }
     } catch (error) {
-      console.error(error);
+      console.error("Google sign-in error:", error);
     }
   };
+  
+  
+  
  
   return (
     <>

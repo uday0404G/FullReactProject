@@ -4,7 +4,9 @@
     height: auto; /* Changed to auto to allow dynamic height */
     /* margin: 20px auto; */
   }
-  
+  .base-tile-cover-container{
+    padding: 10px;
+  }
   .swiper-slide {
     text-align: center;
     font-size: 18px;
