@@ -56,7 +56,7 @@ export default function Proslider2() {
 
         </div>
         <div className='col-2 justify-content-center align-items-center d-flex'>
-            <button className='btn btn-dark px-5 py-3'>Shop All  </button>
+            <Link to="/Sunglass" className='btn btn-dark px-5 py-2'>Shop All  </Link>
         </div>
       </div>
     </div>

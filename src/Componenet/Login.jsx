@@ -71,6 +71,7 @@ const Login = () => {
       setLogin(true)
     } else {
       dispatch(UserLoginData(Userinfo));
+      localStorage.setItem("Uid",Userinfo.id)
       Swal.fire({
         title: "Welcome To Zenni Optical Clone.",
         width: 600,
@@ -96,20 +97,20 @@ const Login = () => {
     try {
       const result = await signInWithPopup(auth, provider);
   
-      // Extract user information from the Google response
+      
       const userinfo = {
         FirstName: result.user.displayName.split(" ")[0],
         LastName: result.user.displayName.split(" ")[1] || "",
         Email: result.user.email,
         PhotoURL: result.user.photoURL,
-        Password: "", // Google sign-in doesn't need a password
+        Password: "", 
       };
   
-      // Check if the user already exists in the store (or you can do this via an API call)
+      
       const existingUser = store.UserInfo.find((el) => el.Email === userinfo.Email);
   
       if (existingUser) {
-        // User already exists, log them in but do not insert data
+     
         Swal.fire({
           title: "Welcome Back to Zenni Optical Clone!",
           width: 600,
@@ -123,11 +124,12 @@ const Login = () => {
             no-repeat
           `,
         });
-        localStorage.setItem("IsLogin", true); // Mark user as logged in
-        nevigate("/"); // Redirect to home
+        localStorage.setItem("IsLogin", true); 
+        nevigate("/"); 
       } else {
-        // User doesn't exist, insert data into UserLoginData and log them in
-        await dispatch(UserLoginData(userinfo)); // Insert user data
+      
+        await dispatch(UserLoginData(userinfo));
+
         Swal.fire({
           title: "Welcome to Zenni Optical Clone!",
           width: 600,
@@ -141,8 +143,8 @@ const Login = () => {
             no-repeat
           `,
         });
-        localStorage.setItem("IsLogin", true); // Mark user as logged in
-        nevigate("/"); // Redirect to home
+        localStorage.setItem("IsLogin", true); 
+        nevigate("/"); 
       }
     } catch (error) {
       console.error("Google sign-in error:", error);

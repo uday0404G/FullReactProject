@@ -57,7 +57,7 @@ export default function Proslider() {
             <h5>Give your eyewear wardrobe a refresh with these deals.</h5>
           </div>
           <div className="col-2 justify-content-center align-items-center d-flex">
-            <button className="btn btn-outline-success">Shop All</button>
+            <Link to="/Eyeglasses" className="btn btn-outline-success">Shop All</Link>
           </div>
         </div>
       </div>

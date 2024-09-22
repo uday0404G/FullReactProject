@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Frems = () => {
   return (
@@ -63,7 +64,7 @@ const Frems = () => {
             />
             <span className="d-block mt-2">Browline</span>
           </div>
-          <div class="text-center col-6 col-md-2 mb-4"><button type="button" class="btn btn-dark">Shop all<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M16.8174 11.7275C17.0322 11.9424 17.0322 12.2432 16.8174 12.458L10.5439 18.8174C10.3291 19.0322 9.98535 19.0322 9.81348 18.8174L8.9541 17.958C8.73926 17.7432 8.73926 17.4424 8.9541 17.2275L14.0244 12.0713L8.9541 6.95801C8.73926 6.74316 8.73926 6.39941 8.9541 6.22754L9.81348 5.36816C9.98535 5.15332 10.3291 5.15332 10.5439 5.36816L16.8174 11.7275Z" fill="white"></path></svg></button></div>
+          <div class="text-center col-6 col-md-2 mb-4"><Link to="/Eyeglasses"  type="button" class="btn btn-dark">Shop all<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M16.8174 11.7275C17.0322 11.9424 17.0322 12.2432 16.8174 12.458L10.5439 18.8174C10.3291 19.0322 9.98535 19.0322 9.81348 18.8174L8.9541 17.958C8.73926 17.7432 8.73926 17.4424 8.9541 17.2275L14.0244 12.0713L8.9541 6.95801C8.73926 6.74316 8.73926 6.39941 8.9541 6.22754L9.81348 5.36816C9.98535 5.15332 10.3291 5.15332 10.5439 5.36816L16.8174 11.7275Z" fill="white"></path></svg></Link></div>
         </div>
       </div>
     </div>
