@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Heading = () => {
   return (
@@ -20,46 +21,46 @@ const Heading = () => {
             />
             <p>3-5 day delivery</p>
           </div>
-          <div className="col-6 col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
+          <Link to="/Eyeglasses" className="text-decoration-none   col-6 col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
             <img
               src="https://static.zennioptical.com/marketing/homepage/category/eyeglasses.jpg"
               className="img-fluid pt-4"
               alt="Eyeglasses"
             />
             <p>Eyeglasses</p>
-          </div>
-          <div className="col-6 col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
+          </Link>
+          <Link to="/Sunglass"  className="col-6 text-decoration-none col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
             <img
               src="https://static.zennioptical.com/marketing/homepage/category/sunglasses.jpg"
               className="img-fluid pt-4"
               alt="Sunglasses"
             />
             <p>Sunglasses</p>
-          </div>
-          <div className="col-6 col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
+          </Link>
+          <Link to="/Lenses" className="col-6 text-decoration-none col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
             <img
               src="https://static.zennioptical.com/marketing/campaign/brands/HP/240620_BrandedFrames_campaign_navtype.jpg"
               className="img-fluid pt-4"
               alt="Designer Brands"
             />
             <p>Designer Brands</p>
-          </div>
-          <div className="col-6 col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
+          </Link>
+          <Link to="/Sunglass" className="col-6 text-decoration-none col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
             <img
               src="https://static.zennioptical.com/marketing/homepage/category/transitions.jpg"
               className="img-fluid pt-4"
               alt="Transitions®"
             />
             <p>Transitions®</p>
-          </div>
-          <div className="col-6 col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
+          </Link>
+          <Link to="/Collection" className=" text-decoration-none col-6 col-sm-4 col-md-2  h-100 d-flex flex-column justify-content-center align-items-center">
             <img
               src="https://static.zennioptical.com/marketing/homepage/category/bluelight.jpg"
               className="img-fluid pt-4"
               alt="Blue Light"
             />
             <p>Blue Light</p>
-          </div>
+          </Link>
         </div>
       </div>
     </div>

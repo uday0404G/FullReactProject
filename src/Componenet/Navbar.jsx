@@ -74,10 +74,10 @@ const MyNavbar = () => {
               <p className="m-0">Favorite</p>
             </div>
 
-            <div className="d-flex flex-column align-items-center me-3">
+            <Nav.Link as={Link} to="/Help" className="d-flex flex-column align-items-center me-3">
               <span className="material-symbols-outlined">help</span>
               <p className="m-0">Help</p>
-            </div>
+            </Nav.Link>
 
             <Nav.Link as={Link} to="/Cart" className="d-flex flex-column align-items-center">
               <span className="material-symbols-outlined">shopping_cart</span>

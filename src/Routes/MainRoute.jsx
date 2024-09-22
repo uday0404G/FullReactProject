@@ -12,6 +12,7 @@ import Cart from '../Componenet/Cart'
 import Login from '../Componenet/Login'
 import PrivateRoute from './PrivateRoute'
 import UserDetails from '../Componenet/UserDetails'
+import Help from '../Componenet/Help'
 const MainRoute = () => {
   return (
     <Routes>
@@ -40,11 +41,7 @@ const MainRoute = () => {
 
           }></Route>
         <Route path="/Login" element={<Login/>}></Route>
-
-
-
-
-
+        <Route path="/Help" element={<Help/>}></Route>
 
 
     </Routes>
