@@ -3,6 +3,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../Firebase/firebase';
 import { Link } from 'react-router-dom';
 import './Home/styles.css';
+import Preloader from './Preloader';
 const Collection = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,7 @@ const Collection = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Preloader/>;
   }
 
   if (error) {

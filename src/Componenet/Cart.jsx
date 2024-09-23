@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { AddtocartDetails } from '../Redux/Loginreducer/action';
+import { AddtocartDetails, RemoveFromCart } from '../Redux/Loginreducer/action';
+import Preloader from './Preloader';
 
 const Cart = () => {
   const uid=localStorage.getItem("Uid")
@@ -21,7 +22,10 @@ const Cart = () => {
   const cart=store.Cart;
   console.log(cart);
   if (!cart) {
-    return <div>Loading...</div> 
+    return <Preloader/> 
+  }
+  const remove=(id)=>{
+    dispatch(RemoveFromCart(id))
   }
   return (
     <>
@@ -43,8 +47,8 @@ const Cart = () => {
       </div>
       {
         cart.map((item, index) => (
-          <>
-           <div className='container-fluid border d-flex justify-content-between align-items-center px-5 py-3'>
+          <div key={index}>
+           <div key={index} className='container-fluid border d-flex justify-content-between align-items-center px-5 py-3'>
         <h5>{}</h5>
       </div>
       <div className='container-fluid border d-flex flex-column flex-md-row justify-content-between align-items-center'>
@@ -54,7 +58,12 @@ const Cart = () => {
         <div className="col-12 col-md-7">
           <div className='container-fluid border d-flex justify-content-between align-items-center px-3 py-2 bg-light'>
             <h3>{item.title}</h3>
-            <Link>Remove</Link>
+            <Link
+              
+              onClick={()=>remove(item.id)} 
+            >
+              Remove
+            </Link>
           </div>
           <div className='container-fluid border d-flex align-items-center px-3 py-2 bg-light'>
             <h4 className='w-50 text-uppercase'>Prescription Type</h4>
@@ -103,7 +112,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-          </>
+          </div>
         ))
       }
     

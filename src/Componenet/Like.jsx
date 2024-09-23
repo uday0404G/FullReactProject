@@ -7,6 +7,7 @@ import { Pagination } from 'swiper/modules';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../Firebase/firebase';
 import { Link } from 'react-router-dom';
+import Preloader from './Preloader';
 
 const Like = () => {
     const [products, setProducts] = useState([]);
@@ -39,7 +40,7 @@ const Like = () => {
     }, []);
   
     if (loading) {
-      return <p>Loading...</p>;
+      return <p><Preloader/></p>;
     }
   
     if (error) {

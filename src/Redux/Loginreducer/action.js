@@ -119,3 +119,11 @@ export const AddtocartDetails = (uid)=> (dispatch) => {
       alert("An error occurred while fetching user data. Please try again.");
     });
 };
+export const RemoveFromCart=(uid)=>(dispatch)=>{
+  dispatch({ type: LOADING });
+
+  axios.delete(`https://zenni-optical-api-1.onrender.com/Cart/?userId=${uid}`)
+    .then((res) => {
+      dispatch({ type:  CART, payload: res.data });
+    });
+}

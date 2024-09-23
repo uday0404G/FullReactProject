@@ -5,6 +5,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../Firebase/firebase'; // Adjust the path to your Firebase config
 import { useDispatch, useSelector } from 'react-redux';
 import { AddtoCart } from '../Redux/Loginreducer/action';
+import Preloader from './Preloader';
 
 const SingPro = () => {
   const { id } = useParams(); // Extract the id from the URL parameters
@@ -51,7 +52,7 @@ const SingPro = () => {
   
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p><Preloader/></p>;
   }
 
   if (error) {

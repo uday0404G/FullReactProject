@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import "./user.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { UserDetail } from '../Redux/Loginreducer/action'
+import Preloader from './Preloader'
 
 const UserDetails = () => {
   const store=useSelector((state)=>state)
@@ -14,18 +15,20 @@ const UserDetails = () => {
 
 
   useEffect(()=>{
+    if(Uid){
 
-    dispach(UserDetail(Uid))
+      dispach(UserDetail(Uid))
+    }
 
   },[dispach,Uid])
 
   const udata = store.UData;
   
   if (!udata) {
-    return <div>Loading...</div> // Show a loading message if data is not yet available
+    return <div><Preloader/></div> 
   }
 
-console.log(store.UData.Email);
+console.log(store.UData);
 
 const Logout=()=>{
   localStorage.setItem("IsLogin",false)

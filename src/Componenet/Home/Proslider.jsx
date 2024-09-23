@@ -7,6 +7,7 @@ import { Pagination } from 'swiper/modules';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../../Firebase/firebase';
 import { Link } from 'react-router-dom';
+import Preloader from '../Preloader';
 
 export default function Proslider() {
   const [products, setProducts] = useState([]);
@@ -39,7 +40,7 @@ export default function Proslider() {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Preloader/>;
   }
 
   if (error) {
