@@ -3,14 +3,19 @@ import { useParams } from 'react-router-dom';
 import Like from './Like';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../Firebase/firebase'; // Adjust the path to your Firebase config
+import { useDispatch, useSelector } from 'react-redux';
+import { AddtoCart } from '../Redux/Loginreducer/action';
 
 const SingPro = () => {
   const { id } = useParams(); // Extract the id from the URL parameters
   const [product, setProduct] = useState(null); // State to store product data
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const store=useSelector(state=>state);
+  const dispatch=useDispatch()
 
   useEffect(() => {
+
     const fetchProduct = async () => {
       try {
         const docRef = doc(db, 'Glassesdatabase', id); // Reference to the document
@@ -31,7 +36,19 @@ const SingPro = () => {
     };
 
     fetchProduct();
-  }, [id]); // Dependency array includes id to re-fetch if id changes
+  }, [id]);
+
+  const addtocart=()=>{
+    const Uid = localStorage.getItem('Uid'); 
+    if (Uid) {
+      const cartItem = { ...product, userId: Uid };
+      dispatch(AddtoCart(cartItem)); 
+    } else {
+      console.error('No user logged in!');
+    }
+  }
+  console.log(store);
+  
 
   if (loading) {
     return <p>Loading...</p>;
@@ -40,7 +57,7 @@ const SingPro = () => {
   if (error) {
     return <p>{error}</p>;
   }
-
+ 
   return (
     <>
       <div className="container-fluid mt-5 border px-5 d-flex flex-column flex-lg-row" style={{ minHeight: "90vh" }}>
@@ -89,7 +106,7 @@ const SingPro = () => {
           {/* Buttons */}
           <span>Pay over time with Paypal, Affirm, or Afterpay. Learn More</span>
           <div className="mt-2">
-            <button className="btn text-white w-100" style={{ backgroundColor: "#007b8f" }}>
+            <button className="btn text-white w-100" onClick={addtocart} style={{ backgroundColor: "#007b8f" }}>
               Add to Cart
             </button>
           </div>

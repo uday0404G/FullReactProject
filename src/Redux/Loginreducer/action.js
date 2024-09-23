@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DATA, ERROR, LOADING, SIGNINDATA, USERINFO } from "./actiontype";
+import { CART, DATA, ERROR, LOADING, SIGNINDATA, UDATA, USERINFO } from "./actiontype";
 import Swal from "sweetalert2";
 
 export const UserLoginData = (obj) => (dispatch) => {
@@ -9,6 +9,8 @@ export const UserLoginData = (obj) => (dispatch) => {
     .post("https://zenni-optical-api-1.onrender.com/User-details", obj)
     .then((res) => {
       dispatch({ type: DATA, payload: res.data });
+      localStorage.setItem("Uid",res.data.id);
+      
     })
     .catch((err) => {
       dispatch({ type: ERROR });
@@ -69,6 +71,47 @@ export const SinInData = (obj) => (dispatch) => {
           text: "Username or Password is Incorrect!",
         });
       }
+    })
+    .catch((err) => {
+      console.error("Error fetching user data:", err);
+      dispatch({ type: ERROR });
+      alert("An error occurred while fetching user data. Please try again.");
+    });
+};
+export const UserDetail = (Uid)=> (dispatch) => {
+  dispatch({ type: LOADING });
+
+  axios
+    .get(`https://zenni-optical-api-1.onrender.com/User-details/${Uid}`)
+    .then((res) => {
+      dispatch({ type:  UDATA, payload: res.data });
+    })
+    .catch((err) => {
+      console.error("Error fetching user data:", err);
+      dispatch({ type: ERROR });
+      alert("An error occurred while fetching user data. Please try again.");
+    });
+};
+
+export const AddtoCart = (obj) => (dispatch) => {
+  dispatch({ type: LOADING });
+
+  axios
+    .post("https://zenni-optical-api-1.onrender.com/Cart", obj)
+    .then((res) => {
+      dispatch({ type: CART });
+    })
+    .catch((err) => {
+      dispatch({ type: ERROR });
+    });
+};
+export const AddtocartDetails = (uid)=> (dispatch) => {
+  dispatch({ type: LOADING });
+
+  axios
+    .get(`https://zenni-optical-api-1.onrender.com/Cart/?userId=${uid}`)
+    .then((res) => {
+      dispatch({ type:  CART, payload: res.data });
     })
     .catch((err) => {
       console.error("Error fetching user data:", err);

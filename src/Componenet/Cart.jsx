@@ -1,35 +1,59 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { AddtocartDetails } from '../Redux/Loginreducer/action';
 
 const Cart = () => {
+  const uid=localStorage.getItem("Uid")
+  const store=useSelector(s=>s)
+  const dispatch=useDispatch()
+
+ 
+
+  useEffect(()=>{
+    if(uid){
+      dispatch(AddtocartDetails(uid))
+    }
+  },[dispatch,uid])
+
+
+  console.log(store.Cart);
+  const cart=store.Cart;
+  console.log(cart);
+  if (!cart) {
+    return <div>Loading...</div> 
+  }
   return (
     <>
+    {
+      cart.length === 0?
       <div className='container-fluid my-5 px-5'>
-        <h1 className='py-1'>Your shopping cart is empty.</h1>
-        <p className='mb-4'>You have no items in your shopping cart.</p>
-        <button className='btn rounded-0 text-uppercase mb-3' style={{ color: "#fff", fontWeight: "700", backgroundColor: "#007b8f", borderColor: "rgba(0,153,168,.5)" }}>
-          Start Shopping
-        </button>
-      </div>
-      
-      <div className='container-fluid border d-flex justify-content-between align-items-center px-5 py-4'>
+      <h1 className='py-1'>Your shopping cart is empty.</h1>
+      <p className='mb-4'>You have no items in your shopping cart.</p>
+      <button className='btn rounded-0 text-uppercase mb-3' style={{ color: "#fff", fontWeight: "700", backgroundColor: "#007b8f", borderColor: "rgba(0,153,168,.5)" }}>
+        Start Shopping
+      </button>
+    </div>:
+        <>
+         <div className='container-fluid border d-flex justify-content-between align-items-center px-5 py-4'>
         <h5>Your Cart (1): $45.00</h5>
         <button className='btn rounded-0 text-uppercase px-5 py-2' style={{ color: "#fff", fontWeight: "700", backgroundColor: "#007b8f", borderColor: "rgba(0,153,168,.5)" }}>
           Checkout
         </button>
       </div>
-      
-      <div className='container-fluid border d-flex justify-content-between align-items-center px-5 py-3'>
-        <h5>Category</h5>
+      {
+        cart.map((item, index) => (
+          <>
+           <div className='container-fluid border d-flex justify-content-between align-items-center px-5 py-3'>
+        <h5>{}</h5>
       </div>
-      
       <div className='container-fluid border d-flex flex-column flex-md-row justify-content-between align-items-center'>
         <div className="col-12 col-md-5 p-5 mb-3 mb-md-0">
-          <img src="https://static.zennioptical.com/production/products/general/32/19/3219730_frame.png?output-quality=90&resize=800px:*" className='img-fluid' alt="" />
+          <img src={item.image} className='img-fluid' alt="" />
         </div>
         <div className="col-12 col-md-7">
           <div className='container-fluid border d-flex justify-content-between align-items-center px-3 py-2 bg-light'>
-            <h3>Aviator Glasses 3219730 White</h3>
+            <h3>{item.title}</h3>
             <Link>Remove</Link>
           </div>
           <div className='container-fluid border d-flex align-items-center px-3 py-2 bg-light'>
@@ -46,7 +70,7 @@ const Cart = () => {
                 <tr>
                   <th scope="col" className='h4'>Frame Price</th>
                   <th scope="col"></th>
-                  <th scope="col" className='h4'>$45.00</th>
+                  <th scope="col" className='h4'>${item.price}</th>
                 </tr>
               </thead>
               <tbody>
@@ -73,12 +97,18 @@ const Cart = () => {
             <div className='w-50 d-flex align-items-center'>
               <h5>Quantity </h5>
               <input type="number" min="1" className='w-25 h-50 ms-2' />
-              <h4  className='h4  w-50 text-end py-2'>$45.00</h4>
+              <h4  className='h4  w-50 text-end py-2'>${item.price}</h4>
               </div>
 
           </div>
         </div>
       </div>
+          </>
+        ))
+      }
+    
+      
+   
       <div className='container-fluid border d-flex justify-content-between align-items-center px-5 py-3 mt-5'>
         <h5>Order summary</h5>
       </div>
@@ -147,6 +177,11 @@ const Cart = () => {
     </div>
   </div>
 </div>
+        </>
+    }
+      
+      
+     
 
     </>
   );

@@ -1,24 +1,42 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import "./user.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { UserData } from '../Redux/Loginreducer/action'
+import { UserDetail } from '../Redux/Loginreducer/action'
 
 const UserDetails = () => {
   const store=useSelector((state)=>state)
+  // const [udata,setUdata]=useState({})
   const dispach=useDispatch()
-  console.log(store);
+  
+    const Uid=localStorage.getItem("Uid")
+
+
+
   useEffect(()=>{
 
-    dispach(UserData)
-  },[dispach])
+    dispach(UserDetail(Uid))
+
+  },[dispach,Uid])
+
+  const udata = store.UData;
   
+  if (!udata) {
+    return <div>Loading...</div> // Show a loading message if data is not yet available
+  }
+
+console.log(store.UData.Email);
+
+const Logout=()=>{
+  localStorage.setItem("IsLogin",false)
+}
+
 
   return (
     <>
-      <div className='container-fluid mt-4'>
+         <div className='container-fluid mt-4'>
         <div className='row'>
-          {/* Sidebar */}
+        
           <div className='col-lg-3 col-md-4 d-none d-md-block border'>
             <div className='w-100 py-3 px-3'>
               <h5>My Account</h5>
@@ -28,12 +46,12 @@ const UserDetails = () => {
             <div className='w-100 py-3 px-3'>
               <h5>JOIN ZENNI REWARDS</h5>
               <p>Refer Friends, Earn $30</p>
-              <p to="/Login">Sign Up</p>
+              <Link to="/Login">Sign Up</Link>
             </div>
             <div className='w-100 py-3 px-3'>
               <h5>Order Management</h5>
               <p>My Orders | <i className="fas fa-truck" style={{ color: "#007b8f" }}></i> Track My Order</p>
-              <p to="/Login">My Payment Methods</p>
+              <Link to="/Login">My Payment Methods</Link>
               <p>My Address Book</p>
             </div>
             <div className='w-100 py-3 px-3'>
@@ -51,13 +69,14 @@ const UserDetails = () => {
             </div>
           </div>
 
-          {/* Main Content */}
+          
           <div className='col-lg-9 col-md-8 col-12 border px-4'>
             <div className='pt-4 ps-3' style={{ borderBottom: "1px solid #007b8f" }}>
               <h6 className='d-flex text-uppercase'>My Account Settings | <p className='ps-2 text-lowercase'> edit </p></h6>
-              <h6 className='text-black d-flex'>Last Name: <p className='ps-1 text-black'> Lashkari</p></h6>
-              <h6 className='text-black d-flex'>Email: <p className='ps-1 text-black'> Lashkari</p></h6>
-              <h6 className='text-black d-flex'>Password: <p className='ps-1 text-black'> Lashkari</p></h6>
+              <h6 className='text-black d-flex'>First Name: <p className='ps-1 text-black'>{udata.FirstName} </p></h6>
+              <h6 className='text-black d-flex'>Last Name: <p className='ps-1 text-black'> {udata.LastName}</p></h6>
+              <h6 className='text-black d-flex'>Email: <p className='ps-1 text-black'> {udata.Email}</p></h6>
+              <h6 className='text-black d-flex'>Password: <p className='ps-1 text-black'> {udata.Password}</p></h6>
               <h6 className='text-black d-flex'>Store Credit Balance: <p className='ps-1 text-black'> $0.00</p></h6>
             </div>
 
@@ -93,9 +112,14 @@ const UserDetails = () => {
               <h6 className='mb-4'>My 'Try On'</h6>
               <p className='ps-1 text-black'>Zenni Frame Fit®</p>
               <p className='ps-1 mb-3 text-black'>You have no saved 'Frame Fit' images</p>
-              <button className='btn rounded-0 text-uppercase mb-3 px-5 py-2' style={{ color: "#fff", fontWeight: "700", backgroundColor: "#007b8f", borderColor: "rgba(0,153,168,.5)" }}>
+              <div className='d-flex justify-content-between'>
+                <button className='btn rounded-0 text-uppercase mb-3 px-5 py-2' style={{ color: "#fff", fontWeight: "700", backgroundColor: "#007b8f", borderColor: "rgba(0,153,168,.5)" }}>
                 Manage
               </button>
+              <button className='btn rounded-0 text-uppercase mb-3 px-5 py-2' onClick={Logout} style={{ color: "#fff", fontWeight: "700", backgroundColor: "#007b8f", borderColor: "rgba(0,153,168,.5)" }}>
+                LogOut
+              </button>
+              </div>
             </div>
           </div>
         </div>

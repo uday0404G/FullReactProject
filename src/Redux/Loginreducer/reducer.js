@@ -1,9 +1,11 @@
-import { DATA,  ERROR, LOADING, SIGNINDATA, USERINFO,  } from "./actiontype";
+import { CART, DATA,  ERROR, LOADING, SIGNINDATA, UDATA, USERINFO,  } from "./actiontype";
 
 const initial = {
   LoginData: [],
   UserInfo:[],
   SigninData:[],
+  UData:[],
+  Cart:[],
   loading: false,
   Error: true,
 };
@@ -27,6 +29,18 @@ export const reducer = (state = initial, action) => {
           loading: false,
           SigninData: action.payload,
         };
+        case CART:
+          return {
+            ...state,
+            loading: false,
+            Cart: action.payload,
+          };
+        case UDATA:
+          return {
+            ...state,
+            loading: false,
+            UData: action.payload,
+          };
     case LOADING:
       return {
         loading: true,

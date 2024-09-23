@@ -71,7 +71,6 @@ const Login = () => {
       setLogin(true)
     } else {
       dispatch(UserLoginData(Userinfo));
-      localStorage.setItem("Uid",Userinfo.id)
       Swal.fire({
         title: "Welcome To Zenni Optical Clone.",
         width: 600,
