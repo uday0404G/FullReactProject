@@ -63,7 +63,7 @@ const Cart = () => {
           <div key={index}>
     
            <div key={index} className='container-fluid border d-flex justify-content-between align-items-center px-5 py-3'>
-        <h5>{}</h5>
+        <h5>{item.category.name}</h5>
       </div>
       <div className='container-fluid border d-flex flex-column flex-md-row justify-content-between align-items-center'>
         <div className="col-12 col-md-5 p-5 mb-3 mb-md-0">
