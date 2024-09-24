@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className="footer-container d-flex flex-column align-items-center pt-5">
+    <div className="footer-container d-flex flex-column align-items-center ">
       {/* Newsletter Section */}
 {/*       <div className="newsletter-section text-center mb-4">
         <h3>Get 10% off your first order</h3>
