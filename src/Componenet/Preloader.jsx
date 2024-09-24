@@ -5,18 +5,12 @@ const Preloader = () => {
   const [loaded, setLoaded] = useState(false); // Manage when the preloader is visible
 
   useEffect(() => {
-    // Simulate window load event
-    const handleLoad = () => {
-      setTimeout(() => {
-        setLoaded(true); // Set loaded to true after 1 second
-      }, 1000);
-    };
 
-    window.addEventListener("load", handleLoad);
+    const timer = setTimeout(() => {
+      setLoaded(true); 
+    }, 2000);
 
-    return () => {
-      window.removeEventListener("load", handleLoad); // Cleanup event listener on unmount
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   // Conditionally render preloader only if not loaded
@@ -25,7 +19,7 @@ const Preloader = () => {
   }
 
   return (
-    <div id="preloader" className={loaded ? "loaded" : ""}>
+    <div id="preloader">
       <div className="line"></div>
     </div>
   );

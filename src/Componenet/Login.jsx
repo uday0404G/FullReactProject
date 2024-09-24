@@ -107,7 +107,8 @@ const Login = () => {
   
       
       const existingUser = store.UserInfo.find((el) => el.Email === userinfo.Email);
-  
+        console.log(existingUser);
+        
       if (existingUser) {
      
         Swal.fire({
@@ -124,6 +125,8 @@ const Login = () => {
           `,
         });
         localStorage.setItem("IsLogin", true); 
+      localStorage.setItem("Uid",existingUser.id);
+
         nevigate("/"); 
       } else {
       
@@ -143,6 +146,7 @@ const Login = () => {
           `,
         });
         localStorage.setItem("IsLogin", true); 
+
         nevigate("/"); 
       }
     } catch (error) {

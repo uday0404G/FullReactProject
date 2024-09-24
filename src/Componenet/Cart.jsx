@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { AddtocartDetails, RemoveFromCart } from '../Redux/Loginreducer/action';
+import { AddtocartDetails, Remove } from '../Redux/Loginreducer/action';
 import Preloader from './Preloader';
 
 const Cart = () => {
   const uid=localStorage.getItem("Uid")
   const store=useSelector(s=>s)
   const dispatch=useDispatch()
+  const [totalitem,setTotalitem]=useState(0)
 
  
 
@@ -17,16 +18,27 @@ const Cart = () => {
     }
   },[dispatch,uid])
 
-
-  console.log(store.Cart);
+  const [price,setPrice]=useState()
+  // console.log(store.Cart);
   const cart=store.Cart;
-  console.log(cart);
+
+  useEffect(() => {
+    if (cart && cart.length > 0) {
+      const priceSum = cart.reduce((sum, item) => sum + item.price, 0);
+      const totalItemsCount = cart.length; 
+      setPrice(priceSum.toFixed(2)); 
+      setTotalitem(totalItemsCount);
+    }
+  }, [cart]);
+  const remove = (id) => {
+    dispatch(Remove(id));
+    // dispatch(AddtocartDetails(uid)); 
+  };
+  // console.log(cart);
   if (!cart) {
     return <Preloader/> 
   }
-  const remove=(id)=>{
-    dispatch(RemoveFromCart(id))
-  }
+ 
   return (
     <>
     {
@@ -40,14 +52,16 @@ const Cart = () => {
     </div>:
         <>
          <div className='container-fluid border d-flex justify-content-between align-items-center px-5 py-4'>
-        <h5>Your Cart (1): $45.00</h5>
+        <h5>Your Cart ({totalitem}):${price}</h5>
         <button className='btn rounded-0 text-uppercase px-5 py-2' style={{ color: "#fff", fontWeight: "700", backgroundColor: "#007b8f", borderColor: "rgba(0,153,168,.5)" }}>
           Checkout
         </button>
       </div>
       {
         cart.map((item, index) => (
+          
           <div key={index}>
+    
            <div key={index} className='container-fluid border d-flex justify-content-between align-items-center px-5 py-3'>
         <h5>{}</h5>
       </div>
@@ -79,7 +93,7 @@ const Cart = () => {
                 <tr>
                   <th scope="col" className='h4'>Frame Price</th>
                   <th scope="col"></th>
-                  <th scope="col" className='h4'>${item.price}</th>
+                  <th scope="col" className='h4' >${item.price}</th>
                 </tr>
               </thead>
               <tbody>
@@ -162,15 +176,15 @@ const Cart = () => {
     <div className="col-12 col-md-6 ps-4 mb-3 mb-md-0">
       <div className='container border bg-white d-flex flex-wrap py-4'>     
         <div className='w-100 d-flex px-3 my-3 justify-content-between'>
-          <h6>Item(1)</h6>
-          <h6>$45</h6>
+          <h6>Item({totalitem})</h6>
+          <h6>${price}</h6>
         </div>
         <div className='w-100 d-flex px-3 justify-content-between'>
           <div className='w-50 my-2'>
             <h2>Total (USD)</h2>
             <p className='my-2'>Shipping and Tax not yet included</p>
           </div>
-          <h1 className='w-50 display-1 text-end fw-6 pt-3'>$45.00</h1>
+          <h1 className='w-50 display-1 text-end fw-6 pt-3'>${price}</h1>
         </div>
       </div>
       

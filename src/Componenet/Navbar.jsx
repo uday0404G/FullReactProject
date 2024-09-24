@@ -11,33 +11,30 @@ const MyNavbar = () => {
   const Uid = localStorage.getItem("Uid");
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const loginState = localStorage.getItem("IsLogin");
+    setIsLoggedIn(loginState === "true");
+  }, []);
 
   // Fetch user details if logged in
   useEffect(() => {
-    if (isLoggedIn) {
+    if (Uid) {
       dispatch(UserDetail(Uid));
     }
-  }, [dispatch, isLoggedIn]);
+    
+  }, [dispatch, Uid]);
 
-  // Fetch cart details if the Uid is available
+  
   useEffect(() => {
     if (Uid) {
       dispatch(AddtocartDetails(Uid));
     }
   }, [dispatch, Uid]);
 
-  useEffect(() => {
-    const loginState = localStorage.getItem("IsLogin");
-    setIsLoggedIn(loginState === "true");
-  }, []);
 
   const udata = selector.UData;
-  const cartCount = selector.Cart?.length || 0; // Handle cart length safely
+  const cartCount = selector.Cart?.length || 0; 
 
-  // Show preloader while user data is loading
-  if (!udata) {
-    return <Preloader />;
-  }
 
   return (
     <Navbar bg="white" expand="lg" className="border mt-4">
