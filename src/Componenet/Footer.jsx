@@ -91,7 +91,7 @@ const Footer = () => {
       {/* FAQ Section */}
       <div className="container-fluid py-4 d-flex flex-column flex-md-row border align-items-center justify-content-between">
         <div className="col-md-4 d-flex flex-column text-center text-md-start">
-          <h6>Frequently Asked Questions</h6>
+          <h6 style={{paddingLeft:"4rem"}}>Frequently Asked Questions</h6>
           <div className='d-flex justify-content-around'>
             <div className='me-md-4'>
               <p>Virtual Try-On</p>
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         <div className="col-md-4 d-flex flex-column text-center text-md-start mt-4 mt-md-0">
-          <h6>Frequently Asked Questions</h6>
+          <h6 style={{paddingLeft:"4rem"}}>Customer Service</h6>
           <div className='d-flex justify-content-around'>
             <div className='me-md-4'>
               <p><i className="fas fa-truck"></i> Track My Order</p>
@@ -123,7 +123,7 @@ const Footer = () => {
         </div>
 
         <div className="col-md-4 d-flex flex-column text-center text-md-start mt-4 mt-md-0">
-          <h6>Have a Question?</h6>
+          <h6 style={{paddingLeft:"4rem"}}>Have a Question?</h6>
           <div className='d-flex justify-content-around'>
             <div className='me-md-4'>
               <p>Visit Our Help Center</p>
