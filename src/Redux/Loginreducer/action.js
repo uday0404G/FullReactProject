@@ -80,7 +80,7 @@ export const SinInData = (obj) => (dispatch) => {
 export const UserDetail = (Uid)=> (dispatch) => {
   dispatch({ type: LOADING });
 
-  axios .get(`https://zenni-optical-api-1.onrender.com/User-details/${Uid}`)
+  axios.get(`https://zenni-optical-api-1.onrender.com/User-details/${Uid}`)
     .then((res) => {
       dispatch({ type:  UDATA, payload: res.data });
     })

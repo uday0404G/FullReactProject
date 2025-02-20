@@ -57,10 +57,8 @@ const Sunglass = () => {
 
   return (
     <>
-      <div className='border mt-3' style={{width:"20%", height:"100%"}}>
-
-      </div>
-      <div className=' border-bottom' style={{width:"80%", height:"100%", marginLeft:"20%"}}>
+    
+      <div className=' border-bottom' style={{width:"100%", height:"100%"}}>
         
         <div className='ben'>
         <div className='ben-b '>

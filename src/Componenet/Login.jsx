@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { SinInData, UserData, UserLoginData } from "../Redux/Loginreducer/action";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
+import { sendPasswordResetEmail } from "firebase/auth";
 const Login = () => {
   const provider = new GoogleAuthProvider();
 
@@ -22,7 +22,7 @@ const Login = () => {
     Email: "",
     Password: "",
   });
-
+  const [email, setEmail] = useState("");
   const dispatch = useDispatch();
   const store = useSelector((s) => s);
 
@@ -155,7 +155,30 @@ const Login = () => {
   };
   
   
-  
+  const handleForgotPassword = async () => {
+    if (!email) {
+      Swal.fire({
+        icon: "warning",
+        title: "Please enter your email address first!",
+      });
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      Swal.fire({
+        icon: "success",
+        title: "Password reset email sent!",
+        text: "Please check your inbox to reset your password.",
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Error sending password reset email",
+        text: error.message,
+      });
+    }
+  };
+
  
   return (
     <>
@@ -226,9 +249,15 @@ const Login = () => {
             </form>
             <br />
             <br />
-            <p style={{ color: "#007b8f" }} className="text-center">
-              Forgot password?
-            </p>
+            <div className="container">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <button onClick={handleForgotPassword}>Forgot Password?</button>
+    </div>
             <hr className="mx-5" />
             <h5 className="text-center">Or</h5>
             <div className="w-100  d-flex  mb-4 text-center d-flex justify-content-center text-center">

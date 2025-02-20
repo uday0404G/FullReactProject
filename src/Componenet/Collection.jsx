@@ -9,7 +9,8 @@ const Collection = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [sort, setSort] = useState('');
-
+ const [roundFilter, setRoundFilter] = useState(false);
+  const [squareFilter, setSquareFilter] = useState(false);
   const productCollection = collection(db, 'Glassesdatabase');
 
   const getProducts = async () => {
@@ -45,7 +46,26 @@ const Collection = () => {
   const handleSort = (e) => {
     setSort(e.target.value);
   };
+  const handleRoundFilterChange = (e) => {
+    setRoundFilter(e.target.checked);
+  };
+
+  const handleSquareFilterChange = (e) => {
+    setSquareFilter(e.target.checked);
+  };
+
   let filteredDatas = products;
+
+
+
+  // Apply filters
+  if (roundFilter) {
+    filteredDatas = filteredDatas.filter((product) => product.title.toLowerCase().includes('round'));
+  }
+
+  if (squareFilter) {
+    filteredDatas = filteredDatas.filter((product) => product.title.toLowerCase().includes('square'));
+  }
 
    // Apply sorting
    if (sort) {
@@ -55,10 +75,9 @@ const Collection = () => {
   }
   return (
     <>
-      <div className='border mt-3' style={{width:"20%", height:"100%"}}>
-
-      </div>
-      <div className=' border-bottom' style={{width:"80%", height:"100%", marginLeft:"20%"}}>
+      
+      
+      <div className=' border-bottom' style={{width:"100%", height:"100%"}}>
       <div className='ben'>
         <div className='ben-b '>
           <img
@@ -88,6 +107,23 @@ const Collection = () => {
         <div className='w-100 d-flex justify-content-between my-3 border-bottom p-2'>
 
         <p>Showing 1-24 of 2118 results</p>
+        <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={roundFilter}
+                onChange={handleRoundFilterChange}
+              /> Round Glasses
+            </label>
+
+            <label className='ms-3'>
+              <input
+                type="checkbox"
+                checked={squareFilter}
+                onChange={handleSquareFilterChange}
+              /> Square Glasses
+            </label>
+          </div>
         <select value={sort} onChange={handleSort}>
           <option value="">Short By Relavance</option>
           <option value="asc">Price Low To High</option>
