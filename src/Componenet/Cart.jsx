@@ -17,6 +17,7 @@ const Cart = () => {
       dispatch(AddtocartDetails(uid))
     }
   },[dispatch,uid])
+  const [quantities, setQuantities] = useState({});
 
   const [price,setPrice]=useState()
   // console.log(store.Cart);
@@ -38,7 +39,19 @@ const Cart = () => {
   if (!cart) {
     return <Preloader/> 
   }
- 
+  const handleQuantityChange = (id, newQuantity) => {
+    if (newQuantity < 1) return;
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [id]: newQuantity,
+    }));
+
+    const newPrice = cart.reduce((sum, item) => {
+      return sum + (item.id === id ? item.price * newQuantity : item.price * (quantities[item.id] || 1));
+    }, 0);
+
+    setPrice(newPrice.toFixed(2));
+  };
   return (
     <>
     {
@@ -119,7 +132,14 @@ const Cart = () => {
             <h5 className='w-50 border-end border-light pe-1'>Subtotal</h5>
             <div className='w-50 d-flex align-items-center'>
               <h5>Quantity </h5>
-              <input type="number" min="1" className='w-25 h-50 ms-2' />
+              <input
+                      type='number'
+                      min='1'
+                      className='w-25 h-50 ms-2'
+                      value={quantities[item.id] || 1}
+                      onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value, 10))}
+                    />
+
               <h4  className='h4  w-50 text-end py-2'>${item.price}</h4>
               </div>
 
