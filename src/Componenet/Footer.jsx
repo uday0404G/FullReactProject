@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <div className="footer-container d-flex flex-column align-items-center pt-5">
+    <div className="footer-container d-flex flex-column align-items-center ">
       {/* Newsletter Section */}
-      <div className="newsletter-section text-center mb-4">
+{/*       <div className="newsletter-section text-center mb-4">
         <h3>Get 10% off your first order</h3>
         <p>Sign up now for exclusive news and savings</p>
         
@@ -34,10 +34,10 @@ const Footer = () => {
           <span> &amp; </span>
           <a href="/terms-of-use">Terms</a>
         </div>
-      </div>
+      </div> */}
 
       {/* Social Icons Section */}
-      <div className="social-icons w-100 mt-4 d-flex flex-column flex-md-row justify-content-center align-items-center">
+{/*       <div className="social-icons w-100 mt-4 d-flex flex-column flex-md-row justify-content-center align-items-center">
         <ul className="socialize d-flex justify-content-center list-unstyled mb-2 mb-md-0 me-md-3">
           <li className="z-logo me-3">
             <img width="32" height="27" src="//static.zennioptical.com/marketing/logo/zlogo/ZEN_Sym_teal.png" alt="Z Logo Teal" />
@@ -78,7 +78,7 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       {/* Get the App Section */}
       <div className="container-fluid py-4 my-4 d-flex flex-column flex-md-row align-items-center justify-content-center" style={{ background: "linear-gradient(90.92deg, rgba(255, 255, 255, .8) 0%, rgba(236, 233, 230, .8) 100%)" }}>
@@ -91,7 +91,7 @@ const Footer = () => {
       {/* FAQ Section */}
       <div className="container-fluid py-4 d-flex flex-column flex-md-row border align-items-center justify-content-between">
         <div className="col-md-4 d-flex flex-column text-center text-md-start">
-          <h6>Frequently Asked Questions</h6>
+          <h6 style={{paddingLeft:"4rem"}}>Frequently Asked Questions</h6>
           <div className='d-flex justify-content-around'>
             <div className='me-md-4'>
               <p>Virtual Try-On</p>
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         <div className="col-md-4 d-flex flex-column text-center text-md-start mt-4 mt-md-0">
-          <h6>Frequently Asked Questions</h6>
+          <h6 style={{paddingLeft:"2rem"}}>Customer Service</h6>
           <div className='d-flex justify-content-around'>
             <div className='me-md-4'>
               <p><i className="fas fa-truck"></i> Track My Order</p>
@@ -123,7 +123,7 @@ const Footer = () => {
         </div>
 
         <div className="col-md-4 d-flex flex-column text-center text-md-start mt-4 mt-md-0">
-          <h6>Have a Question?</h6>
+          <h6 style={{paddingLeft:"1rem"}}>Have a Question?</h6>
           <div className='d-flex justify-content-around'>
             <div className='me-md-4'>
               <p>Visit Our Help Center</p>
